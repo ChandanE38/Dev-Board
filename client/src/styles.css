@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    color-scheme: dark;
+    --devboard-bg-start: #050816;
+    --devboard-bg-end: #0a0f2e;
+    --devboard-purple: #6c63ff;
+    --devboard-cyan: #00d4ff;
+    --devboard-green: #00ff88;
+    --devboard-card: rgba(255, 255, 255, 0.03);
+    --devboard-border: rgba(255, 255, 255, 0.08);
+    --devboard-text: #e2e8f0;
+    --devboard-text-secondary: #94a3b8;
+}
+
+html,
+body,
+#root {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--devboard-text);
+    background: radial-gradient(circle at top left, rgba(108, 99, 255, 0.2), transparent 30%), radial-gradient(circle at top right, rgba(0, 212, 255, 0.12), transparent 24%), radial-gradient(circle at bottom left, rgba(0, 255, 136, 0.08), transparent 22%), linear-gradient(135deg, var(--devboard-bg-start) 0%, var(--devboard-bg-end) 100%);
+    background-attachment: fixed;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.28);
+    border-radius: 999px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes progressPulse {
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.7s ease both;
+}
+
+.delay-1 {
+    animation-delay: 0.08s;
+}
+
+.delay-2 {
+    animation-delay: 0.16s;
+}
+
+.animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: gradientShift 14s ease infinite;
+}
+
+.animate-progress-pulse {
+    animation: progressPulse 1.2s ease-in-out infinite;
+}
+
+.glass-card {
+    background: var(--devboard-card);
+    border: 1px solid var(--devboard-border);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.premium-focus:focus {
+    box-shadow: 0 0 0 1px rgba(108, 99, 255, 0.35), 0 0 0 6px rgba(0, 212, 255, 0.08), 0 18px 48px rgba(0, 0, 0, 0.35);
+}
